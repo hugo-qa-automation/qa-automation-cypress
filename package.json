@@ -1,0 +1,36 @@
+{
+  "name": "qa_automation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "api": "json-server --watch db.json --port 4000",
+    "start": "live-server ./app --port=5500",
+    "start:all": "concurrently \"npm run start\" \"npm run api\"",
+    
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run --reporter cypress-mochawesome-reporter",
+
+    "report:generate": "marge cypress/reports/.jsons/*.json -f report -o cypress/rtaskkill /F /IM node.exeeports/html",
+    "report:view": "live-server cypress/reports/html --port=5501",
+    "test:report": "start-server-and-test \"npm run start:all\" http://127.0.0.1:5500 \"npm run cypress:run\"",
+
+    "reset:db": "node scripts/resetDb.js",
+    "test:api": "npm run reset:db && cypress run --spec cypress/e2e/api-negative.cy.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "cypress": "^15.2.0",
+    "cypress-mochawesome-reporter": "^3.8.4",
+    "json-server": "^1.0.0-beta.3",
+    "live-server": "^1.2.2",
+    "mochawesome": "^7.1.4",
+    "mochawesome-report-generator": "^6.3.0",
+    "open": "^10.2.0",
+    "serve": "^14.2.5",
+    "start-server-and-test": "^2.1.2"
+  }
+}

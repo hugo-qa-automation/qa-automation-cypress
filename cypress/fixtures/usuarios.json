@@ -1,0 +1,12 @@
+{
+  "valido": {
+    "username": "Pepe",
+    "password": "1234"
+  },
+  "invalido": {
+    "username": "Maria",
+    "password": "abcd"
+  }
+}
+
+
