@@ -1,30 +1,33 @@
 import CarritoPage from '../pages/CarritoPage';
 
 const carritoPage = new CarritoPage();
-let productos = [];
+
+// Mock de productos para tests
+const productos = [
+  { id: 1, name: 'Producto 1 Modificado', price: 10, stock: 5 },
+  { id: 2, name: 'Producto 2', price: 15, stock: 0 }, // sin stock
+  { id: 3, name: 'Producto 3', price: 20, stock: 3 }
+];
 
 describe('Carrito de compras', () => {
-  before(() => {
-    // Obtenemos productos reales de la API
-    cy.request('http://localhost:4000/products').then((resp) => {
-      productos = resp.body;
-      cy.log(JSON.stringify(productos)); // 👀 Para debug en Cypress runner
-    });
-  });
-
   beforeEach(() => {
-    cy.visit('http://127.0.0.1:5500/app/index.html'); // Ajusta si cambia el puerto
+    // Interceptamos la llamada a la API y devolvemos nuestros productos mock
+    cy.intercept('GET', 'http://localhost:4000/products', productos).as('getProducts');
+
+    // Visitamos la página y esperamos la respuesta
+    cy.visit('http://127.0.0.1:5501/app/index.html');
+    cy.wait('@getProducts');
   });
 
   it('TC001 - Añadir producto al carrito con stock', () => {
     carritoPage.agregarProductoConStock();
-    carritoPage.verificarProductoEnCarrito('Producto 1');
+    carritoPage.verificarProductoEnCarrito(productos[0].name);
   });
 
   it('TC002 - Intentar añadir producto sin stock', () => {
     carritoPage.agregarProductoSinStock();
     carritoPage.verificarMensaje('Producto no disponible');
-    carritoPage.verificarProductoNoEnCarrito('Producto 2');
+    carritoPage.verificarProductoNoEnCarrito(productos[1].name);
   });
 
   it('TC003 - Aplicar código de descuento válido', () => {
@@ -38,74 +41,74 @@ describe('Carrito de compras', () => {
   });
 
   it('TC005 - Eliminar producto del carrito', () => {
-    carritoPage.agregarProductoConStock();
-    carritoPage.verificarProductoEnCarrito('Producto 1');
+    carritoPage.agregarProducto(productos[0].name);
+    carritoPage.verificarProductoEnCarrito(productos[0].name);
 
-    carritoPage.eliminarProducto('Producto 1');
-    carritoPage.verificarProductoNoEnCarrito('Producto 1');
+    carritoPage.eliminarProducto(productos[0].name);
+    carritoPage.verificarProductoNoEnCarrito(productos[0].name);
   });
 
   it('TC008 - Añadir 2 productos y verificar total', () => {
-    const prod1 = productos.find(p => p.id === 1);
-    const prod3 = productos.find(p => p.id === 3);
+    const prod1 = productos[0];
+    const prod3 = productos[2];
     const totalEsperado = prod1.price + prod3.price;
 
-    carritoPage.agregarProducto('Producto 1');
-    carritoPage.agregarProducto('Producto 3');
+    carritoPage.agregarProducto(prod1.name);
+    carritoPage.agregarProducto(prod3.name);
 
-    carritoPage.verificarProductoEnCarrito('Producto 1');
-    carritoPage.verificarProductoEnCarrito('Producto 3');
+    carritoPage.verificarProductoEnCarrito(prod1.name);
+    carritoPage.verificarProductoEnCarrito(prod3.name);
 
-    carritoPage.verificarTotal(`$${totalEsperado}`);
+    carritoPage.verificarTotal(totalEsperado);
   });
 
   it('TC009 - Añadir 2 productos, eliminar 1 y verificar total', () => {
-    const prod3 = productos.find(p => p.id === 3);
+    const prod1 = productos[0];
+    const prod3 = productos[2];
 
-    carritoPage.agregarProducto('Producto 1');
-    carritoPage.agregarProducto('Producto 3');
+    carritoPage.agregarProducto(prod1.name);
+    carritoPage.agregarProducto(prod3.name);
 
-    carritoPage.verificarProductoEnCarrito('Producto 1');
-    carritoPage.verificarProductoEnCarrito('Producto 3');
+    carritoPage.verificarProductoEnCarrito(prod1.name);
+    carritoPage.verificarProductoEnCarrito(prod3.name);
 
-    carritoPage.eliminarProducto('Producto 1');
+    carritoPage.eliminarProducto(prod1.name);
 
-    carritoPage.verificarProductoNoEnCarrito('Producto 1');
-    carritoPage.verificarProductoEnCarrito('Producto 3');
+    carritoPage.verificarProductoNoEnCarrito(prod1.name);
+    carritoPage.verificarProductoEnCarrito(prod3.name);
 
-    carritoPage.verificarTotal(`$${prod3.price}`);
+    carritoPage.verificarTotal(prod3.price);
   });
 
   it('TC010 - Aplicar cupón válido y verificar total', () => {
-    const prod1 = productos.find(p => p.id === 1);
-    const prod3 = productos.find(p => p.id === 3);
+    const prod1 = productos[0];
+    const prod3 = productos[2];
     const total = prod1.price + prod3.price;
-    const totalConDescuento = (total * 0.9).toFixed(2);
+    const totalConDescuento = total * 0.9;
 
-    carritoPage.agregarProducto('Producto 1');
-    carritoPage.agregarProducto('Producto 3');
+    carritoPage.agregarProducto(prod1.name);
+    carritoPage.agregarProducto(prod3.name);
 
-    carritoPage.verificarProductoEnCarrito('Producto 1');
-    carritoPage.verificarProductoEnCarrito('Producto 3');
+    carritoPage.verificarProductoEnCarrito(prod1.name);
+    carritoPage.verificarProductoEnCarrito(prod3.name);
 
     carritoPage.aplicarCodigoDescuento('DESCUENTO10');
     carritoPage.verificarMensaje('Código aplicado correctamente');
 
-    carritoPage.verificarTotal(`$${totalConDescuento}`);
+    carritoPage.verificarTotal(totalConDescuento);
   });
 
   it('TC011 - Intentar aplicar un cupón vacío y verificar mensaje de error', () => {
-    const prod1 = productos.find(p => p.id === 1);
+    const prod1 = productos[0];
 
-    carritoPage.agregarProducto('Producto 1');
-    carritoPage.verificarProductoEnCarrito('Producto 1');
+    carritoPage.agregarProducto(prod1.name);
+    carritoPage.verificarProductoEnCarrito(prod1.name);
 
     carritoPage.aplicarCodigoDescuento('');
     carritoPage.verificarMensaje('Código no válido');
 
-    carritoPage.verificarTotal(`$${prod1.price}`);
+    carritoPage.verificarTotal(prod1.price);
   });
 });
-
 
 

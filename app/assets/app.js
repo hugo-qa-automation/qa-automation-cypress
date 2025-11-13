@@ -12,32 +12,27 @@ document.addEventListener('DOMContentLoaded', () => {
   let total = 0;
   let discountApplied = false;
 
-  function formatMoney(num) {
-    const rounded = Math.round(num * 100) / 100;
-    if (Number.isInteger(rounded)) return `$${rounded}`;
-    return `$${rounded.toFixed(2)}`;
-  }
-
   function updateTotalDisplay() {
-    totalEl.textContent = `Total: ${formatMoney(total)}`;
+    totalEl.textContent = `Total: $${total}`;
   }
 
   function renderCart() {
     cartItemsEl.innerHTML = '';
-    cart.forEach(item => {
+    cart.forEach((item, idx) => { // ✅ índice único por item en el carrito
       const li = document.createElement('li');
       li.textContent = `${item.name} - $${item.price}`;
 
       const removeBtn = document.createElement('button');
       removeBtn.textContent = 'Eliminar';
       removeBtn.classList.add('remove');
-      removeBtn.addEventListener('click', () => {
-        const index = cart.findIndex(c => c.id === item.id);
-        if (index !== -1) {
-          cart.splice(index, 1);
-          total -= item.price;
-          if (discountApplied) total = Math.round((total * 0.9) * 100) / 100;
-          updateTotalDisplay();
+      removeBtn.dataset.idx = idx; // ✅ identificador único
+
+      removeBtn.addEventListener('click', (e) => {
+        const index = parseInt(e.target.dataset.idx);
+        if (index !== -1 && cart[index]) {
+          const removed = cart.splice(index, 1)[0];
+          total -= removed.price;
+          if (discountApplied) total = Math.round(total * 0.9);
           renderCart();
         }
       });
@@ -45,13 +40,14 @@ document.addEventListener('DOMContentLoaded', () => {
       li.appendChild(removeBtn);
       cartItemsEl.appendChild(li);
     });
+
     updateTotalDisplay();
   }
 
   function addToCart(product) {
     cart.push(product);
     total += product.price;
-    if (discountApplied) total = Math.round((total * 0.9) * 100) / 100;
+    if (discountApplied) total = Math.round(total * 0.9);
     renderCart();
   }
 
@@ -67,8 +63,18 @@ document.addEventListener('DOMContentLoaded', () => {
       const btn = document.createElement('button');
       btn.innerText = 'Añadir al carrito';
       btn.addEventListener('click', () => {
-        if (p.stock > 0) addToCart(p);
-        else discountMessageEl.innerText = 'Producto no disponible';
+        if (p.stock > 0) {
+          addToCart(p);
+        } else {
+          discountMessageEl.innerText = 'Producto no disponible';
+          const cartEl = document.getElementById('cart');
+          const warning = document.createElement('p');
+          warning.textContent = 'No hay stock disponible';
+          warning.id = 'stock-warning';
+          const prevWarning = document.getElementById('stock-warning');
+          if (prevWarning) prevWarning.remove();
+          cartEl.appendChild(warning);
+        }
       });
 
       card.appendChild(title);
@@ -88,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch(err => {
       console.warn('API no disponible, usando productos locales', err);
       products = [
-        { id: 1, name: 'Producto 1', stock: 10, price: 10 },
+        { id: 1, name: 'Producto 1 Modificado', stock: 10, price: 10 },
         { id: 2, name: 'Producto 2', stock: 0, price: 10 },
         { id: 3, name: 'Producto 3', stock: 5, price: 10 }
       ];
@@ -101,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (code === 'DESCUENTO10') {
       discountMessageEl.innerText = 'Código aplicado correctamente';
       discountApplied = true;
-      total = Math.round((total * 0.9) * 100) / 100;
+      total = Math.round(total * 0.9);
       updateTotalDisplay();
     } else {
       discountMessageEl.innerText = 'Código no válido';
@@ -115,15 +121,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const pass = document.getElementById('password').value;
     const msg = document.getElementById('login-message');
 
-    if (user === 'Pepe' && pass === '1234') msg.innerText = 'Inicio sesión exitoso';
-    else msg.innerText = 'Usuario o contraseña incorrecto';
+    if (!user || !pass) msg.innerText = 'El usuario y contraseña son obligatorios';
+    else if (user === 'Pepe' && pass === '1234') msg.innerText = 'Inicio sesión exitoso';
+    else msg.innerText = 'Credenciales inválidas';
   });
 
   // Newsletter
   document.getElementById('subscribe-button').addEventListener('click', () => {
     const email = document.getElementById('email-input').value;
     const msg = document.getElementById('subscription-message');
-
     msg.innerText = email.includes('@') ? '¡Te has suscrito con éxito!' : 'Introduce un correo válido';
   });
 });
+
+
+
+
+
+
+

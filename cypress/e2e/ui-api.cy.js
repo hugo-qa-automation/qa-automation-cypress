@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 describe('UI + API Tests - Mini Tienda', () => {
-  const baseUrl = 'http://127.0.0.1:5500/app/'; // tu live-server
+  const baseUrl = 'http://127.0.0.1:5501/app/index.html'; // tu live-server
   const apiUrlProducts = 'http://localhost:4000/products';
   const apiUrlCart = 'http://localhost:4000/cart';
 

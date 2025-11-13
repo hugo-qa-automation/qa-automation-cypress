@@ -27,9 +27,9 @@ describe('API Negative Tests - JSON Server', () => {
         body: item,
         failOnStatusCode: false
       }).then((res) => {
-        // json-server no valida, así que comprobamos que se inserta igualmente
         expect(res.status).to.be.oneOf([200, 201]);
         cy.log('⚠️ json-server permite añadir sin productId. En un backend real sería 400.');
+        expect(res.body).to.have.property('id'); // dummy check
       });
     });
 
@@ -44,6 +44,7 @@ describe('API Negative Tests - JSON Server', () => {
       }).then((res) => {
         expect(res.status).to.be.oneOf([200, 201]);
         cy.log('⚠️ json-server permite cantidad negativa. En un backend real sería 400/422.');
+        expect(res.body).to.have.property('id'); // dummy check
       });
     });
   });
@@ -74,6 +75,40 @@ describe('API Negative Tests - JSON Server', () => {
       }).then((res) => {
         expect(res.status).to.be.oneOf([200, 201, 404]);
         cy.log('⚠️ Si devuelve 404, es limitación de json-server. En un backend real se esperaría 200.');
+      });
+    });
+  });
+
+  context('POST /products - Validaciones negativas', () => {
+    it('No debería permitir crear producto sin nombre (json-server lo permite)', () => {
+      const newProduct = { price: 20, stock: 5 };
+
+      cy.request({
+        method: 'POST',
+        url: `${baseUrl}/products`,
+        body: newProduct,
+        failOnStatusCode: false
+      }).then((res) => {
+        expect(res.status).to.be.oneOf([200, 201]);
+        cy.log('⚠️ json-server permite producto sin nombre. En un backend real debería ser 400.');
+        expect(res.body).to.have.property('id'); // dummy check
+      });
+    });
+  });
+
+  context('POST /cart - Producto inexistente', () => {
+    it('No debería permitir añadir producto inexistente (json-server lo permite)', () => {
+      const item = { productId: 9999, quantity: 1 };
+
+      cy.request({
+        method: 'POST',
+        url: `${baseUrl}/cart`,
+        body: item,
+        failOnStatusCode: false
+      }).then((res) => {
+        expect(res.status).to.be.oneOf([200, 201]);
+        cy.log('⚠️ json-server permite añadir productos inexistentes. En un backend real sería 404.');
+        expect(res.body).to.have.property('id'); // dummy check
       });
     });
   });

@@ -4,16 +4,17 @@
   "main": "index.js",
   "scripts": {
     "api": "json-server --watch db.json --port 4000",
-    "start": "live-server ./app --port=5500",
+    "start": "live-server ./app --port=5501",
     "start:all": "concurrently \"npm run start\" \"npm run api\"",
-    
     "cypress:open": "cypress open",
     "cypress:run": "cypress run --reporter cypress-mochawesome-reporter",
 
-    "report:generate": "marge cypress/reports/.jsons/*.json -f report -o cypress/rtaskkill /F /IM node.exeeports/html",
-    "report:view": "live-server cypress/reports/html --port=5501",
-    "test:report": "start-server-and-test \"npm run start:all\" http://127.0.0.1:5500 \"npm run cypress:run\"",
+    "clean:reports": "rimraf cypress/reports/* cypress/screenshots/* cypress/videos/*",
 
+    "report:generate": "marge cypress/reports/*.json -f report -o cypress/reports/html",
+    "report:view": "live-server cypress/reports/html --port=5501",
+
+    "test:report": "start-server-and-test \"npm run start:all\" http://127.0.0.1:5501 \"npm run cypress:run\"",
     "reset:db": "node scripts/resetDb.js",
     "test:api": "npm run reset:db && cypress run --spec cypress/e2e/api-negative.cy.js"
   },
@@ -30,6 +31,7 @@
     "mochawesome": "^7.1.4",
     "mochawesome-report-generator": "^6.3.0",
     "open": "^10.2.0",
+    "rimraf": "^6.0.1",
     "serve": "^14.2.5",
     "start-server-and-test": "^2.1.2"
   }

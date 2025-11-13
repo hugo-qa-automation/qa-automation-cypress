@@ -1,22 +1,152 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "Producto 1",
+      "name": "Producto 1 Modificado",
       "stock": 20,
-      "price": 12
+      "price": 12,
+      "id": "1"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Producto 2",
       "stock": 0,
       "price": 10
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Producto 3",
       "stock": 5,
       "price": 10
+    },
+    {
+      "id": "0aa6",
+      "price": 20,
+      "stock": 5
+    },
+    {
+      "id": "c5b3",
+      "price": 20,
+      "stock": 5
+    },
+    {
+      "id": "015d",
+      "price": 20,
+      "stock": 5
+    },
+    {
+      "id": "a576",
+      "price": 20,
+      "stock": 5
+    },
+    {
+      "id": "490c",
+      "price": 20,
+      "stock": 5
+    },
+    {
+      "id": "6919",
+      "price": 20,
+      "stock": 5
+    },
+    {
+      "id": "af59",
+      "price": 20,
+      "stock": 5
+    },
+    {
+      "id": "ef05",
+      "price": 20,
+      "stock": 5
+    },
+    {
+      "id": "6be8",
+      "price": 20,
+      "stock": 5
+    },
+    {
+      "id": "c23f",
+      "price": 20,
+      "stock": 5
+    },
+    {
+      "id": "70f9",
+      "price": 20,
+      "stock": 5
+    },
+    {
+      "id": "8dc4",
+      "price": 20,
+      "stock": 5
+    },
+    {
+      "id": "53fb",
+      "price": 20,
+      "stock": 5
+    },
+    {
+      "id": "ec04",
+      "price": 20,
+      "stock": 5
+    },
+    {
+      "id": "6b7c",
+      "price": 20,
+      "stock": 5
+    },
+    {
+      "id": "5dab",
+      "price": 20,
+      "stock": 5
+    },
+    {
+      "id": "4c8c",
+      "price": 20,
+      "stock": 5
+    },
+    {
+      "id": "cba5",
+      "price": 20,
+      "stock": 5
+    },
+    {
+      "id": "97b7",
+      "price": 20,
+      "stock": 5
+    },
+    {
+      "id": "d345",
+      "price": 20,
+      "stock": 5
+    },
+    {
+      "id": "42b4",
+      "price": 20,
+      "stock": 5
+    },
+    {
+      "id": "eeea",
+      "price": 20,
+      "stock": 5
+    },
+    {
+      "id": "0e82",
+      "price": 20,
+      "stock": 5
+    },
+    {
+      "id": "6a38",
+      "price": 20,
+      "stock": 5
+    },
+    {
+      "id": "e077",
+      "price": 20,
+      "stock": 5
+    },
+    {
+      "id": "863e",
+      "price": 20,
+      "stock": 5
     }
   ],
   "cart": [
@@ -121,6 +251,661 @@
     },
     {
       "id": "17c6",
+      "productId": 1,
+      "quantity": 2
+    },
+    {
+      "id": "a78b",
+      "quantity": 2
+    },
+    {
+      "id": "85dd",
+      "productId": 1,
+      "quantity": -5
+    },
+    {
+      "productId": 3,
+      "quantity": 5,
+      "id": "4110"
+    },
+    {
+      "id": "64ee",
+      "quantity": 2
+    },
+    {
+      "id": "1795",
+      "productId": 1,
+      "quantity": -5
+    },
+    {
+      "productId": 3,
+      "quantity": 5,
+      "id": "cdaf"
+    },
+    {
+      "id": "dad0",
+      "productId": 1,
+      "quantity": 2
+    },
+    {
+      "id": "cdd4",
+      "quantity": 2
+    },
+    {
+      "id": "c0c8",
+      "productId": 1,
+      "quantity": -5
+    },
+    {
+      "productId": 3,
+      "quantity": 5,
+      "id": "8a30"
+    },
+    {
+      "id": "8eca",
+      "productId": 1,
+      "quantity": 2
+    },
+    {
+      "id": "10f5",
+      "quantity": 2
+    },
+    {
+      "id": "1e74",
+      "productId": 1,
+      "quantity": -5
+    },
+    {
+      "productId": 3,
+      "quantity": 5,
+      "id": "0e0c"
+    },
+    {
+      "id": "caf9",
+      "productId": 1,
+      "quantity": 2
+    },
+    {
+      "id": "fa4a",
+      "quantity": 2
+    },
+    {
+      "id": "2925",
+      "productId": 1,
+      "quantity": -5
+    },
+    {
+      "id": "882a",
+      "productId": 9999,
+      "quantity": 1
+    },
+    {
+      "id": "0dac",
+      "quantity": 2
+    },
+    {
+      "id": "69af",
+      "productId": 1,
+      "quantity": -5
+    },
+    {
+      "id": "e31c",
+      "productId": 9999,
+      "quantity": 1
+    },
+    {
+      "productId": 3,
+      "quantity": 5,
+      "id": "5e85"
+    },
+    {
+      "id": "9f62",
+      "productId": 1,
+      "quantity": 2
+    },
+    {
+      "id": "78ab",
+      "quantity": 2
+    },
+    {
+      "id": "4f73",
+      "productId": 1,
+      "quantity": -5
+    },
+    {
+      "id": "6923",
+      "productId": 9999,
+      "quantity": 1
+    },
+    {
+      "productId": 3,
+      "quantity": 5,
+      "id": "e3e0"
+    },
+    {
+      "id": "3970",
+      "productId": 1,
+      "quantity": 2
+    },
+    {
+      "id": "78c7",
+      "quantity": 2
+    },
+    {
+      "id": "fc00",
+      "productId": 1,
+      "quantity": -5
+    },
+    {
+      "id": "2e1f",
+      "productId": 9999,
+      "quantity": 1
+    },
+    {
+      "productId": 3,
+      "quantity": 5,
+      "id": "9ddc"
+    },
+    {
+      "id": "872b",
+      "productId": 1,
+      "quantity": 2
+    },
+    {
+      "id": "c1ff",
+      "quantity": 2
+    },
+    {
+      "id": "ae7b",
+      "productId": 1,
+      "quantity": -5
+    },
+    {
+      "id": "710a",
+      "productId": 9999,
+      "quantity": 1
+    },
+    {
+      "productId": 3,
+      "quantity": 5,
+      "id": "c70a"
+    },
+    {
+      "id": "55d3",
+      "quantity": 2
+    },
+    {
+      "id": "297e",
+      "productId": 1,
+      "quantity": -5
+    },
+    {
+      "id": "a0f3",
+      "productId": 9999,
+      "quantity": 1
+    },
+    {
+      "productId": 3,
+      "quantity": 5,
+      "id": "a008"
+    },
+    {
+      "id": "9302",
+      "quantity": 2
+    },
+    {
+      "id": "39f4",
+      "productId": 1,
+      "quantity": -5
+    },
+    {
+      "id": "cbf2",
+      "productId": 9999,
+      "quantity": 1
+    },
+    {
+      "productId": 3,
+      "quantity": 5,
+      "id": "d6fd"
+    },
+    {
+      "id": "a4a2",
+      "productId": 1,
+      "quantity": 2
+    },
+    {
+      "id": "0219",
+      "quantity": 2
+    },
+    {
+      "id": "75a7",
+      "productId": 1,
+      "quantity": -5
+    },
+    {
+      "id": "4ea7",
+      "productId": 9999,
+      "quantity": 1
+    },
+    {
+      "productId": 3,
+      "quantity": 5,
+      "id": "dafc"
+    },
+    {
+      "id": "a68e",
+      "productId": 1,
+      "quantity": 2
+    },
+    {
+      "id": "0cc9",
+      "quantity": 2
+    },
+    {
+      "id": "42b7",
+      "productId": 1,
+      "quantity": -5
+    },
+    {
+      "id": "660f",
+      "productId": 9999,
+      "quantity": 1
+    },
+    {
+      "productId": 3,
+      "quantity": 5,
+      "id": "19e5"
+    },
+    {
+      "id": "15a1",
+      "productId": 1,
+      "quantity": 2
+    },
+    {
+      "id": "b9a3",
+      "quantity": 2
+    },
+    {
+      "id": "4419",
+      "productId": 1,
+      "quantity": -5
+    },
+    {
+      "id": "dca4",
+      "productId": 9999,
+      "quantity": 1
+    },
+    {
+      "productId": 3,
+      "quantity": 5,
+      "id": "071f"
+    },
+    {
+      "id": "9518",
+      "quantity": 2
+    },
+    {
+      "id": "867f",
+      "productId": 1,
+      "quantity": -5
+    },
+    {
+      "id": "d307",
+      "productId": 9999,
+      "quantity": 1
+    },
+    {
+      "productId": 3,
+      "quantity": 5,
+      "id": "f10d"
+    },
+    {
+      "id": "9e65",
+      "productId": 1,
+      "quantity": 2
+    },
+    {
+      "id": "206e",
+      "quantity": 2
+    },
+    {
+      "id": "ee1a",
+      "productId": 1,
+      "quantity": -5
+    },
+    {
+      "id": "e8cb",
+      "productId": 9999,
+      "quantity": 1
+    },
+    {
+      "productId": 3,
+      "quantity": 5,
+      "id": "6338"
+    },
+    {
+      "id": "8c72",
+      "quantity": 2
+    },
+    {
+      "id": "af62",
+      "productId": 1,
+      "quantity": -5
+    },
+    {
+      "id": "d343",
+      "productId": 9999,
+      "quantity": 1
+    },
+    {
+      "id": "3663",
+      "productId": 3,
+      "quantity": 1
+    },
+    {
+      "productId": 3,
+      "quantity": 5,
+      "id": "26da"
+    },
+    {
+      "id": "1cd8",
+      "quantity": 2
+    },
+    {
+      "id": "3457",
+      "productId": 1,
+      "quantity": -5
+    },
+    {
+      "id": "f5a8",
+      "productId": 9999,
+      "quantity": 1
+    },
+    {
+      "productId": 3,
+      "quantity": 5,
+      "id": "5fac"
+    },
+    {
+      "id": "3b70",
+      "quantity": 2
+    },
+    {
+      "id": "105b",
+      "productId": 1,
+      "quantity": -5
+    },
+    {
+      "id": "ee4a",
+      "productId": 9999,
+      "quantity": 1
+    },
+    {
+      "productId": 3,
+      "quantity": 5,
+      "id": "3be4"
+    },
+    {
+      "id": "9a9b",
+      "quantity": 2
+    },
+    {
+      "id": "70f5",
+      "productId": 1,
+      "quantity": -5
+    },
+    {
+      "id": "b77f",
+      "productId": 9999,
+      "quantity": 1
+    },
+    {
+      "productId": 3,
+      "quantity": 5,
+      "id": "0342"
+    },
+    {
+      "id": "ee3a",
+      "quantity": 2
+    },
+    {
+      "id": "82e8",
+      "productId": 1,
+      "quantity": -5
+    },
+    {
+      "id": "ede9",
+      "productId": 9999,
+      "quantity": 1
+    },
+    {
+      "productId": 3,
+      "quantity": 5,
+      "id": "5376"
+    },
+    {
+      "id": "b42f",
+      "quantity": 2
+    },
+    {
+      "id": "59f2",
+      "productId": 1,
+      "quantity": -5
+    },
+    {
+      "id": "9de1",
+      "productId": 9999,
+      "quantity": 1
+    },
+    {
+      "productId": 3,
+      "quantity": 5,
+      "id": "fa41"
+    },
+    {
+      "id": "15aa",
+      "quantity": 2
+    },
+    {
+      "id": "379a",
+      "productId": 1,
+      "quantity": -5
+    },
+    {
+      "id": "b723",
+      "productId": 9999,
+      "quantity": 1
+    },
+    {
+      "productId": 3,
+      "quantity": 5,
+      "id": "9338"
+    },
+    {
+      "id": "a6cb",
+      "productId": 1,
+      "quantity": 2
+    },
+    {
+      "id": "fb98",
+      "productId": 1,
+      "quantity": 2
+    },
+    {
+      "id": "975e",
+      "productId": 1,
+      "quantity": 2
+    },
+    {
+      "id": "f64c",
+      "quantity": 2
+    },
+    {
+      "id": "5c41",
+      "productId": 1,
+      "quantity": -5
+    },
+    {
+      "id": "6250",
+      "productId": 9999,
+      "quantity": 1
+    },
+    {
+      "productId": 3,
+      "quantity": 5,
+      "id": "7578"
+    },
+    {
+      "id": "5948",
+      "productId": 1,
+      "quantity": 2
+    },
+    {
+      "id": "a440",
+      "productId": 1,
+      "quantity": 2
+    },
+    {
+      "id": "a0f1",
+      "quantity": 2
+    },
+    {
+      "id": "ffe9",
+      "productId": 1,
+      "quantity": -5
+    },
+    {
+      "id": "d23d",
+      "productId": 9999,
+      "quantity": 1
+    },
+    {
+      "productId": 3,
+      "quantity": 5,
+      "id": "9351"
+    },
+    {
+      "id": "9dcb",
+      "productId": 1,
+      "quantity": 2
+    },
+    {
+      "id": "2309",
+      "quantity": 2
+    },
+    {
+      "id": "4635",
+      "productId": 1,
+      "quantity": -5
+    },
+    {
+      "id": "8d45",
+      "productId": 9999,
+      "quantity": 1
+    },
+    {
+      "productId": 3,
+      "quantity": 5,
+      "id": "2f8c"
+    },
+    {
+      "id": "8ea8",
+      "productId": 1,
+      "quantity": 2
+    },
+    {
+      "id": "eb1a",
+      "quantity": 2
+    },
+    {
+      "id": "c335",
+      "productId": 1,
+      "quantity": -5
+    },
+    {
+      "id": "af0c",
+      "productId": 9999,
+      "quantity": 1
+    },
+    {
+      "productId": 3,
+      "quantity": 5,
+      "id": "3691"
+    },
+    {
+      "id": "42c1",
+      "productId": 1,
+      "quantity": 2
+    },
+    {
+      "id": "b99f",
+      "quantity": 2
+    },
+    {
+      "id": "459f",
+      "productId": 1,
+      "quantity": -5
+    },
+    {
+      "id": "ec91",
+      "productId": 9999,
+      "quantity": 1
+    },
+    {
+      "productId": 3,
+      "quantity": 5,
+      "id": "f9ef"
+    },
+    {
+      "id": "8399",
+      "productId": 1,
+      "quantity": 2
+    },
+    {
+      "id": "cf19",
+      "quantity": 2
+    },
+    {
+      "id": "182e",
+      "productId": 1,
+      "quantity": -5
+    },
+    {
+      "id": "d1d1",
+      "productId": 9999,
+      "quantity": 1
+    },
+    {
+      "productId": 3,
+      "quantity": 5,
+      "id": "a1d9"
+    },
+    {
+      "id": "3a7f",
+      "productId": 1,
+      "quantity": 2
+    },
+    {
+      "id": "eb53",
+      "quantity": 2
+    },
+    {
+      "id": "2680",
+      "productId": 1,
+      "quantity": -5
+    },
+    {
+      "id": "e689",
+      "productId": 9999,
+      "quantity": 1
+    },
+    {
+      "productId": 3,
+      "quantity": 5,
+      "id": "60f5"
+    },
+    {
+      "id": "13dd",
       "productId": 1,
       "quantity": 2
     }
